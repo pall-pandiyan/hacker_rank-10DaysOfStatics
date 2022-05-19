@@ -31,11 +31,17 @@ def interQuartile(values, freqs):
     
     n = len(arr)
     mid = n//2
-    
-    if ( n%2 == 0 ):
-        print(round(median(arr[mid:]) - median(arr[:mid]),1))
+    # q1 = median(arr[:mid])
+    # mid = (n+1)//2
+    # q3 = median(arr[mid:])
+    q1 = median(arr[:mid])
+    if( n%2 == 0 ):
+        q3 = median(arr[mid:])
     else:
-        print(round(median(arr[mid+1:]) - median(arr[:mid]),1))
+        q3 = median(arr[mid+1:])
+        
+    print(round(float(q3-q1),1))
+
 
 
 if __name__ == '__main__':
