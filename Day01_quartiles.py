@@ -13,12 +13,11 @@ import sys
 # The function accepts INTEGER_ARRAY arr as parameter.
 #
 
-
 def median(arr):
-    # the array should be sorted before sending
     n = len(arr)
     mid = n//2
-    if (n % 2 == 1):
+
+    if ( n%2 == 1 ):
         return arr[mid]
     else:
         return (arr[mid-1]+arr[mid])//2
@@ -27,22 +26,19 @@ def median(arr):
 def quartiles(arr):
     # Write your code here
     arr.sort()
-    n = len(arr)
+    # n is last index rather than the length
+    n = len(arr)-1
     mid = n//2
     result = []
 
-    if(n == 3):
-        return arr
-
-    if(n % 2 == 1):
+    if ( n%2 == 0 ):
         result.append(median(arr[:mid]))
         result.append(arr[mid])
         result.append(median(arr[mid+1:]))
     else:
-        result.append(median(arr[:mid-1]))
-        result.append((arr[mid-1]+arr[mid])//2)
+        result.append(median(arr[:mid+1]))
+        result.append((arr[mid+1]+arr[mid])//2)
         result.append(median(arr[mid+1:]))
-
     return result
 
 
